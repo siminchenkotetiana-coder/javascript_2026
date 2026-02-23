@@ -31,4 +31,4 @@ console.log(typeof numberLet);
 
 // 6. Спробуйте змінити значення змінної, оголошеної через const. Перевірте, що станеться.
 
-// numberConst = 5; 
+numberConst = 5; 
