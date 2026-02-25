@@ -41,7 +41,7 @@ numberConst = 5;
 рядок у форматі: "You picked <ім'я товару>, price per item is <ціна товару> credits". 
 Де<ім'я товару> і <ціна товару> це значення змінних productName і pricePerItem. */
 
-let productName = "apple";
-let pricePerItem = 20;
+let productName = "book";
+let pricePerItem = 150;
 let message = `You picked ${productName}, price per item is ${pricePerItem} credits`;
 console.log(message);
