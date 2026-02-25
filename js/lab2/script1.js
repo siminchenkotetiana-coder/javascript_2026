@@ -31,17 +31,15 @@ console.log(typeof numberLet);
 
 // 6. Спробуйте змінити значення змінної, оголошеної через const. Перевірте, що станеться.
 
-//numberConst = 5; 
+numberConst = 5; 
 // Неможливо змінити значення змінної, оголошеної через const, оскільки воно задається один раз і залишається незмінним, тому при зміні значення виникає помилка.
 
 //Додаткове завдання
-/*Оголоси змінну message та запиши в неї повідомлення про купівлю,
+/* Оголоси змінну message та запиши в неї повідомлення про купівлю,
 рядок у форматі: "You picked <ім'я товару>, price per item is <ціна товару> credits". 
-Де<ім'я товару> і <ціна товару> це значення змінних productName і pricePerItem. 
-Використовуй синтаксис шаблонних рядків.*/
+Де<ім'я товару> і <ціна товару> це значення змінних productName і pricePerItem. */
 
 let productName = "apple";
 let pricePerItem = 20;
 let message = `You picked ${productName}, price per item is ${pricePerItem} credits`;
-
 console.log(message);
