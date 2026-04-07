@@ -2,9 +2,9 @@
 
 let tempetature = 50;
 
-if (tempetature<10) {
+if (temperature<10) {
     console.log("холодно");
-} else if (tempetature>=10 && tempetature<25){
+} else if (temperature>=10 && temperature<25){
     console.log("тепло");
 } else {
     console.log("спекотно");
