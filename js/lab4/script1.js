@@ -1,6 +1,6 @@
 //Завдання1. Створіть змінну temperature та використайте if-else для визначення, чи є погода холодною, теплою чи спекотною.
 
-let tempetature = 50;
+let temperature = 50;
 
 if (temperature<10) {
     console.log("холодно");
@@ -59,5 +59,27 @@ if (password === "admin123"){
     console.log("Доступ дозволено");
 } else {
     console.log("Доступ заборонено");
+}
+
+// Додаткове завдання. 
+ 
+/*Програма приймає оцінку студента (від 0 до 100) і виводить відповідну оцінку за шкалою:
+90-100: "Відмінно"
+70-89: "Добре"
+50-69: "Задовільно"
+0-49: "Не склав"*/
+
+let grade = 111;
+
+if (grade >=90 && grade <=100 ) {
+    console.log("Відмінно");
+} else if (grade >= 70 && grade <= 89){
+    console.log("Добре");
+} else if (grade >= 50 && grade <= 69){
+    console.log("Задовільно");
+} else if (grade >= 0 && grade <= 49){
+    console.log("Не склав")
+} else{
+    console.log("Некоректно введена оцінка")
 }
 
