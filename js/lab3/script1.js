@@ -67,3 +67,15 @@ console.log(7 === 4+3);
 console.log(null == undefined);
 console.log(null === undefined);
 
+/*Додаткове завдання.
+
+Функція add повинна вміти складати три числа та виводити результат у консоль. 
+Додай функції add три параметри a, b і c, які отримуватимуть значення аргументів під час її виклику.
+Доповни console.log() так, щоб він логував рядок "Addition result equals <result>",
+де <result> це сума переданих чисел.*/
+
+function add (a, b, c){
+    return a + b + c;
+}
+console.log("Addition result equals: " + add(54, 121, 81));
+
