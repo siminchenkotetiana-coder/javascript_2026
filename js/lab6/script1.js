@@ -30,13 +30,20 @@ console.log("Після unshift:", arr2);
 
 // 3. Варіант 13 — об'єднання масивів
 
-console.log("Перший масив:");
-console.log(arr1);
+//метод concat
+let part1 = ["Monday", "Tuesday", "Wednesday", "Thursday"];
+let part2 = ["Friday", "Saturday", "Sunday"];
 
-console.log("Другий масив:");
-console.log(arr2);
+let result = part1.concat(part2);
+console.log("Об'єднаний масив:", result);
 
-let combined = arr1.concat(arr2);
+//оператор spread
+const array1 = [10, 20, 30];
+console.log("Перший масив:", array1);
 
+const array2 = [40, 50, 60];
+console.log("Другий масив:", array2);
+
+const combined = [...array1, ...array2];
 console.log("Об'єднаний масив:", combined);
 
