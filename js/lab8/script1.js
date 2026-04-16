@@ -1,17 +1,19 @@
 //Створити та викликати просту функцію без параметрів.
 function sayHello() {
-    console.log("Hello, world!");
+    console.log("Today is Wednesday!");
 }
 
 sayHello();
 
 //Оголосити функцію з параметрами та викликати її з різними аргументами.
-function greet(name) {
-    console.log("Hello, " + name + "!");
+function showWeather(city, temperature) {
+    return "У місті " + city + " зараз " + temperature + "°C";
 }
 
-greet("Vlad");
-greet("Anna");
+// виклики з різними аргументами
+console.log(showWeather("Київ", 18));
+console.log(showWeather("Львів", 15));
+console.log(showWeather("Одеса", 22));
 
 //Варіант 13
 //Напиши функцію max, яка приймає два числа і повертає більше з них.
