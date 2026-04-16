@@ -1,67 +1,45 @@
+// Оголошення масивів
+let arr1 = [14, 54, 31, 63, 85]; // літерал
+let arr2 = new Array(34, 72, 45, 87); // конструктор
+
+console.log("arr1:", arr1);
+console.log("arr2:", arr2);
+
 // 1. sort()
-let arrSort = [9, 3, 7, 1, 5];
-console.log("Вихідний масив:", arrSort);
+let sorted = [...arr1].sort((a, b) => a - b);
+console.log("sort():", sorted);
 
-let sorted = [...arrSort].sort((a, b) => a - b);
-console.log("Відсортований:", sorted);
+// 2. reverse()
+let reversed = [...arr1].reverse();
+console.log("reverse():", reversed);
 
-// 2. reverse() 
-let words = ["JavaScript", "HTML", "CSS"];
-console.log("До:", words);
+// 3. concat()
+let combined = arr1.concat(arr2);
+console.log("concat():", combined);
 
-let reversedWords = [...words].reverse();
-console.log("Після:", reversedWords);
-
-// 3. concat() 
-let group1 = ["Іван", "Петро", "Федір"];
-let group2 = ["Оля", "Марина"];
-
-let allStudents = group1.concat(group2);
-console.log("Результат:", allStudents);
-
-// 4. slice() 
-let fruits = ["apple", "banana", "cherry", "pear"];
-console.log("До:", fruits);
-
-let someFruits = fruits.slice(2, 4);
-console.log("Після:", someFruits);
+// 4. slice()
+let sliced = arr1.slice(1, 3);
+console.log("slice():", sliced);
 
 // 5. splice()
-let numbers = [35, 7, 21, 63, 54, 61];
-console.log("До:", numbers);
-
-// видаляємо 2 елементи з індексу 0 і додаємо 14 і 15
-numbers.splice(0, 2, 14, 15);
-console.log("Після:", numbers);
+let arrSplice = [...arr1];
+arrSplice.splice(1, 2, 10, 20);
+console.log("splice():", arrSplice);
 
 // 6. indexOf()
-let animals = ["fish", "parrot", "turtle"];
+console.log("indexOf(9):", arr1.indexOf(9));
+console.log("indexOf(100):", arr1.indexOf(100));
 
-console.log("Індекс 'fish':", animals.indexOf("fish"));
-console.log("Індекс 'dog':", animals.indexOf("dog")); // 
-
-// 7. includes() 
-let subjects = ["математика", "фізика", "інформатика"];
-console.log("\nincludes:");
-
-console.log("Є 'фізика'?:", subjects.includes("фізика"));
+// 7. includes()
+console.log("includes(2):", arr1.includes(2));
+console.log("includes(100):", arr1.includes(100));
 
 // 8. find()
-let students = [
-    { name: "Іван", age: 17 },
-    { name: "Оля", age: 19 },
-    { name: "Петро", age: 16 }
-];
-
-let adult = students.find(st => st.age >= 18);
-console.log("Перший повнолітній:", adult);
+let found = arr1.find(x => x > 79);
+console.log("find (>79):", found);
 
 // 9. findIndex()
-let products = [
-    { name: "smartphone", price: 500 },
-    { name: "laptop", price: 1500 },
-    { name: "mouse", price: 50 }
-];
+let foundIndex = arr1.findIndex(x => x > 63);
+console.log("findIndex (>63):", foundIndex);
 
-let expensiveIndex = products.findIndex(p => p.price > 1000);
-console.log("Індекс дорогого товару:", expensiveIndex);
+
