@@ -1,6 +1,6 @@
 //Створити та викликати просту функцію без параметрів.
 function sayHello() {
-    console.log("Today is Wednesday!");
+    console.log("Hello, world!");
 }
 
 sayHello();
@@ -25,6 +25,5 @@ function max(a, b) {
     }
 }
 
-// перевірка
 console.log(max(72, 63));
 console.log(max(7, 21));
