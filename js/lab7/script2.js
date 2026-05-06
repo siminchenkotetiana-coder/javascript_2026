@@ -30,7 +30,5 @@ let people = [
     { name: "Уляна", age: 21 }
 ];
 
-console.log("До сортування:", people);
 people.sort((a, b) => a.age - b.age);
-
-console.log("Після сортування:", people);
+console.log("Масив після сортування:", people);
