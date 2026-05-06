@@ -27,3 +27,13 @@ function max(a, b) {
 
 console.log(max(72, 63));
 console.log(max(7, 21));
+
+//Додаткове завдання. Створи функцію getFirstCharacter, яка приймає рядок і повертає його перший символ.
+
+function getFirstCharacter(str) {
+    return str[0];
+}
+
+console.log(getFirstCharacter("Sparkling"));
+console.log(getFirstCharacter("Unique"));
+console.log(getFirstCharacter("New"));
