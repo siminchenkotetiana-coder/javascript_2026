@@ -47,3 +47,14 @@ console.log("Другий масив:", array2);
 const combined = [...array1, ...array2];
 console.log("Об'єднаний масив:", combined);
 
+// 4. Створити масив слів та вивести тільки ті, що містять більше 5 літер
+let words = ["book", "sun", "computer", "rainbow", "sunset", "monday"];
+
+console.log("Початковий масив слів:");
+console.log(words);
+
+// Відбір слів, у яких більше 5 літер
+let longWords = words.filter(word => word.length > 5);
+
+console.log("Слова, що містять більше 5 літер:");
+console.log(longWords);
