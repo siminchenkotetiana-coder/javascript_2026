@@ -19,3 +19,18 @@ console.log("Другий масив:", numbers2);
 
 let combined = numbers1.concat(numbers2);
 console.log("Об'єднаний масив:", combined);
+
+
+//Додаткове завдання. Дано масив об'єктів (ім'я, вік). Використати sort() для сортування за віком.
+
+let people = [
+    { name: "Петро", age: 17 },
+    { name: "Олена", age: 19 },
+    { name: "Катерина", age: 24 },
+    { name: "Уляна", age: 21 }
+];
+
+console.log("До сортування:", people);
+people.sort((a, b) => a.age - b.age);
+
+console.log("Після сортування:", people);
