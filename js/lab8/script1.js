@@ -37,3 +37,4 @@ function getFirstCharacter(str) {
 console.log(getFirstCharacter("Sparkling"));
 console.log(getFirstCharacter("Unique"));
 console.log(getFirstCharacter("New"));
+
