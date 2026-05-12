@@ -41,3 +41,14 @@ const result = filterEvenNumbers(num);
 
 console.log("Парні числа:", result);
 
+//Додаткове завдання
+// Напишіть стрілкову функцію, яка перевіряє, чи містить масив 
+// хоча б одне від'ємне число, використовуючи .some().
+const hasNegativeNumber = arr => arr.some(number => number < 0);
+
+const num1 = [5, 8, 12, -3, 7];
+const num2 = [1, 2, 3, 4, 5];
+
+console.log(hasNegativeNumber(num1)); 
+console.log(hasNegativeNumber(num2)); 
+
