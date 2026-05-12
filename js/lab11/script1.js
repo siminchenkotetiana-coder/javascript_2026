@@ -98,4 +98,35 @@ console.log("Додавання: " + calc.add(51, 3));
 console.log("Віднімання: " + calc.subtract(31, 4));
 console.log("Множення: " + calc.multiply(9, 7));
 
+//Додаткове завдання
+//Створити об'єкт "Банк" із методами покласти(), зняти(), отримати баланс().
+let bank = {
+
+    balance: 0,
+
+    deposit(amount) {
+        this.balance += amount;
+        return "На рахунок покладено " + amount + " грн";
+    },
+
+    withdraw(amount) {
+        if (amount <= this.balance) {
+            this.balance -= amount;
+            return "Знято " + amount + " грн";
+        } else {
+            return "Недостатньо коштів";
+        }
+    },
+
+    getBalance() {
+        return "Баланс: " + this.balance + " грн";
+    }
+};
+
+console.log(bank.deposit(1000));
+console.log(bank.withdraw(400));
+console.log(bank.getBalance());
+
+
+
 
