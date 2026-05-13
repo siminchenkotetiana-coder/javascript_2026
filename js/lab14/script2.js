@@ -115,7 +115,6 @@ setTimeout(() => {
 
 // варіант 13
 // Функціональний вираз для отримання парних чисел з масиву
-
 const getEvenNumbers = function(arr) {
     return arr.filter(function(number) {
         return number % 2 === 0;
