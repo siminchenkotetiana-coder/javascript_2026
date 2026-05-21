@@ -58,9 +58,16 @@ let library = [
 console.log(library);
 
 
+// Додаткове завдання
+let book4 = {
+    title: "Інститут",
+    author: "Стівен Кінг"
+};
+// Використовуємо spread для збереження початкових даних та додавання нового елемента
+let updatedLibrary = [...library, { ...book4 }];
 
+console.log("Початкова бібліотека:");
+console.log(library); 
 
-
-
-
-
+console.log("Оновлена бібліотека (із новою книгою):");
+console.log(updatedLibrary);
