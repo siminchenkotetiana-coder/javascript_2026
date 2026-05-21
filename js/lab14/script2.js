@@ -126,3 +126,15 @@ const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 const result = getEvenNumbers(numbers);
 
 console.log(result);
+
+// Додаткове завдання
+// Написати функцію, яка приймає масив і повертає його копію.
+
+const copyArray = (arr) => [...arr];
+
+const original = ["apple", "banana", "orange", "pear", "melon"];
+const clone = copyArray(original);
+
+console.log("Копія:", clone); 
+console.log("Перевірка що це різні масиви в пам'яті", original !== clone); 
+
