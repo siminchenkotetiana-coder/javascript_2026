@@ -57,3 +57,20 @@ const result = removeFirstElements(5, 30, 40, 50, 60, 70, 80, 90, 20);
 console.log(result);
 
 
+// Додаткове завдання
+// Написати функцію, яка приймає список параметрів та повертає об'єкт, 
+// що містить перший параметр окремо, а решту – у масиві.
+
+function separateFirstParam(first, ...restParams) {
+    return {
+        firstParameter: first,
+        otherParameters: restParams
+    };
+}
+
+const groupedData = separateFirstParam("Головний", "Елемент 2", "Елемент 3", "Елемент 4");
+
+console.log(groupedData);
+
+console.log(separateFirstParam(10, 20, 30, 40));
+
