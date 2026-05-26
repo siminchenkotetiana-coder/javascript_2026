@@ -43,3 +43,37 @@ const delayedMessage = delayedCall(showMessage, 2000);
 
 delayedMessage("Виклик через 2 секунди");
 
+
+
+// Додаткове завдання: Реалізувати функцію з частковим застосуванням аргументів.
+
+// Функція partial() реалізує часткове застосування аргументів
+function partial(fn, ...fixedArgs) {
+
+    // Повертається нова функція
+    return function(...remainingArgs) {
+
+        // Викликаємо основну функцію,
+        // об'єднуючи зафіксовані та нові аргументи
+        return fn(...fixedArgs, ...remainingArgs);
+    };
+}
+
+// Функція обчислення кінцевої вартості товару
+function calculatePrice(tax, discount, price) {
+
+    // Додаємо податок та віднімаємо знижку
+    return price + (price * tax) - discount;
+}
+
+// Створюємо нову функцію,
+// де податок = 20%, знижка = 5
+const calculateStorePrice = partial(calculatePrice, 0.20, 5);
+
+// Передаємо лише ціну товару
+console.log("Кінцева вартість товару 1:", calculateStorePrice(100));
+
+// Ще один виклик для іншої ціни
+console.log("Кінцева вартість товару 2:", calculateStorePrice(200));
+
+
