@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ЛР 22. Варіант 13</title>
+  <link rel="stylesheet" href="style.css">
+<head>
+    <h2>Форма зворотного зв'язку</h2>
+
+    <form id="myForm">
+        <input type="text" id="userName" placeholder="Введіть ім'я" required>
+        <input type="email" id="userEmail" placeholder="Введіть email" required>
+        <button type="submit">Відправити</button>
+    </form>
+
+    <div id="message"></div>
+
+    <script>
+        const form = document.getElementById("myForm");
+        const message = document.getElementById("message");
+
+        form.addEventListener("submit", (event) => {
+            event.preventDefault();
+
+            // Отримуємо значення з полів
+            const name = document.getElementById("userName").value;
+
+            // Виводимо повідомлення та робимо блок видимим
+            message.textContent = `Дякуємо, ${name}! Форму успішно відправлено.`;
+            message.style.display = "block";
+
+            // Очищаємо
+            form.reset();
+        });
+    </script>
+
+</body>
+</html>
