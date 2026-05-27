@@ -1,0 +1,31 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f5f7fb;
+}
+
+.page {
+  width: min(800px, 92%);
+  margin: 32px auto;
+}
+
+button {
+  padding: 10px 16px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.card {
+  padding: 18px;
+  border: 1px solid #d4dbe7;
+  border-radius: 12px;
+  background: white;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
