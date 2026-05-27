@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ЛР 23. Варіант 13</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="page">
+    <h1>Клонування DOM-елемента</h1>
+    <button id="clone-button" type="button">Клонувати картку</button>
+
+    <section id="cards" class="cards">
+      <article id="original-card" class="card">
+        <h2 class="card-title">Оригінальна картка</h2>
+        <p class="card-text">Цей елемент буде клоновано разом із дочірніми вузлами.</p>
+      </article>
+    </section>
+  </main>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+  const cloneButton = document.querySelector("#clone-button");
+  const cardsContainer = document.querySelector("#cards");
+  const originalCard = document.querySelector("#original-card");
+  let cloneCounter = 1;
+
+  cloneButton.addEventListener("click", () => {
+    const clonedCard = originalCard.cloneNode(true);
+
+    clonedCard.id = `cloned-card-${cloneCounter}`;
+    clonedCard.querySelector(".card-title").textContent = `Клонована картка №${cloneCounter}`;
+    clonedCard.querySelector(".card-text").textContent =
+      "Це копія елемента, створена методом cloneNode(true).";
+
+    cardsContainer.appendChild(clonedCard);
+    cloneCounter += 1;
+  });
+});
+  </script>
+</body>
+</html>
