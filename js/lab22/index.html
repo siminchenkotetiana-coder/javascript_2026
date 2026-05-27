@@ -14,23 +14,18 @@
         <button type="submit">Відправити</button>
     </form>
 
-    <div id="message"></div>
-
     <script>
         const form = document.getElementById("myForm");
-        const message = document.getElementById("message");
 
-        form.addEventListener("submit", (event) => {
+        form.addEventListener("submit", function(event) {
             event.preventDefault();
 
-            // Отримуємо значення з полів
+            // Отримуємо ім'я користувача
             const name = document.getElementById("userName").value;
 
-            // Виводимо повідомлення та робимо блок видимим
-            message.textContent = `Дякуємо, ${name}! Форму успішно відправлено.`;
-            message.style.display = "block";
+            // Виводимо повідомлення
+            alert(`Форму успішно відправлено! Дякуємо, ${name}.`);
 
-            // Очищаємо
             form.reset();
         });
     </script>
