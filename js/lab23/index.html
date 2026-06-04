@@ -9,7 +9,9 @@
 <body>
   <main class="page">
     <h1>Клонування DOM-елемента</h1>
+    
     <button id="clone-button" type="button">Клонувати картку</button>
+    <button id="timer-button" type="button">Запустити таймер</button>
 
     <section id="cards" class="cards">
       <article id="original-card" class="card">
@@ -21,23 +23,45 @@
 
   <script>
   document.addEventListener("DOMContentLoaded", () => {
-  const cloneButton = document.querySelector("#clone-button");
-  const cardsContainer = document.querySelector("#cards");
-  const originalCard = document.querySelector("#original-card");
-  let cloneCounter = 1;
+    const cloneButton = document.querySelector("#clone-button");
+    const timerButton = document.querySelector("#timer-button"); // Кнопка таймера
+    const cardsContainer = document.querySelector("#cards");
+    const originalCard = document.querySelector("#original-card");
+    
+    let cloneCounter = 1;
+    let timerId = null; // ідентифікатор таймера
 
-  cloneButton.addEventListener("click", () => {
-    const clonedCard = originalCard.cloneNode(true);
+    // Функція клонування картки
+    function createCardClone() {
+      const clonedCard = originalCard.cloneNode(true);
 
-    clonedCard.id = `cloned-card-${cloneCounter}`;
-    clonedCard.querySelector(".card-title").textContent = `Клонована картка №${cloneCounter}`;
-    clonedCard.querySelector(".card-text").textContent =
-      "Це копія елемента, створена методом cloneNode(true).";
+      clonedCard.id = `cloned-card-${cloneCounter}`;
+      clonedCard.querySelector(".card-title").textContent = `Клонована картка №${cloneCounter}`;
+      clonedCard.querySelector(".card-text").textContent =
+        "Це копія елемента, створена автоматично або через кнопку.";
 
-    cardsContainer.appendChild(clonedCard);
-    cloneCounter += 1;
+      cardsContainer.appendChild(clonedCard);
+      cloneCounter += 1;
+    }
+
+    // Обробник для звичайної кнопки клонування
+    cloneButton.addEventListener("click", createCardClone);
+
+    // Обробник для кнопки таймера (Старт/Стоп)
+    timerButton.addEventListener("click", () => {
+      if (timerId === null) {
+        // Якщо таймер НЕ запущенний -> ЗАПУСКАЄМО
+        timerId = setInterval(createCardClone, 3000);
+        timerButton.textContent = "Зупинити таймер";
+        timerButton.style.backgroundColor = "#ff4d4d"; // змінюємо колір на червоний
+      } else {
+        clearInterval(timerId);
+        timerId = null; // Скидаємо змінну, щоб знати, що таймер вимкнено
+        timerButton.textContent = "Запустити таймер";
+        timerButton.style.backgroundColor = ""; // Повертаємо початковий колір
+      }
+    });
   });
-});
   </script>
 </body>
 </html>
