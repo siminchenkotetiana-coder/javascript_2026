@@ -1,32 +1,48 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ЛР 22. Варіант 13</title>
-  <link rel="stylesheet" href="style.css">
-<head>
-    <h2>Форма зворотного зв'язку</h2>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ЛР 22. Варіант 13</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body> <h2>Форма зворотного зв'язку</h2>
 
     <form id="myForm">
         <input type="text" id="userName" placeholder="Введіть ім'я" required>
+        <div id="charCount" style="font-size: 0.9em; color: gray; margin-bottom: 10px;">
+            Кількість символів: 0
+        </div>
+
         <input type="email" id="userEmail" placeholder="Введіть email" required>
         <button type="submit">Відправити</button>
     </form>
 
     <script>
         const form = document.getElementById("myForm");
+        const userNameInput = document.getElementById("userName");
+        const charCountDisplay = document.getElementById("charCount");
 
+        // Додаткове завдання: підрахунок символів у реальному часі
+        userNameInput.addEventListener("input", function() {
+            const currentLength = userNameInput.value.length;
+            charCountDisplay.textContent = `Кількість символів: ${currentLength}`;
+        });
+
+        // Обробка відправки форми
         form.addEventListener("submit", function(event) {
             event.preventDefault();
 
             // Отримуємо ім'я користувача
-            const name = document.getElementById("userName").value;
+            const name = userNameInput.value;
 
             // Виводимо повідомлення
             alert(`Форму успішно відправлено! Дякуємо, ${name}.`);
 
             form.reset();
+            
+            // Скидаємо лічильник до 0 після очищення форми
+            charCountDisplay.textContent = "Кількість символів: 0";
         });
     </script>
 
