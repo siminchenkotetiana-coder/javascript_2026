@@ -1,0 +1,39 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.container {
+    padding: 20px;
+    text-align: center;
+}
+
+#draggable {
+    width: 150px;
+    height: 150px;
+    background-color: #3498db;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: grab;
+    position: absolute;
+    top: 200px;
+    left: 100px;
+    user-select: none; /* Забороняє виділення тексту під час перетягування */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+#draggable:active {
+    cursor: grabbing;
+    background-color: #2980b9;
+    transform: scale(1.05);
+}
