@@ -1,0 +1,32 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f3f6fb;
+}
+
+.page {
+  width: min(800px, 92%);
+  margin: 32px auto;
+}
+
+.move-area {
+  height: 320px;
+  display: grid;
+  place-items: center;
+  border: 2px dashed #6b86b8;
+  border-radius: 14px;
+  background: white;
+  user-select: none;
+}
+
+.stats {
+  margin-top: 18px;
+  padding: 16px;
+  background: white;
+  border-radius: 12px;
+}
+
+.stats p {
+  margin: 8px 0;
+  font-weight: 700;
+}
