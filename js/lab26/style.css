@@ -1,0 +1,26 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f7f8fb;
+}
+
+.page {
+  width: min(600px, 90%);
+  margin: 40px auto;
+  padding: 24px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+}
+
+button {
+  padding: 12px 18px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.info {
+  margin-top: 18px;
+  font-weight: 700;
+  color: #1d7f37;
+}
