@@ -1,20 +1,13 @@
 "use strict";
 
-/*
-  Лабораторна робота 26
-  Варіант 13: кнопка після натискання видаляє саму себе.
-*/
+// Варіант 13: кнопка після натискання видаляє саму себе.
 
-document.addEventListener("DOMContentLoaded", () => {
-  const button = document.querySelector("#remove-me");
-  const info = document.querySelector("#info");
+const button = document.getElementById('selfDestructBtn');
 
-  button.addEventListener(
-    "click",
-    (event) => {
-      event.currentTarget.remove();
-      info.textContent = "Кнопку натиснуто, і вона видалила сама себе.";
-    },
-    { once: true }
-  );
-});
+// Додаємо обробник події кліку
+button.addEventListener('click', function() {
+  info.textContent = "Кнопку натиснуто, і вона видалила сама себе.";
+    // Метод remove() видаляє елемент з DOM
+    this.remove(); 
+    console.log('Кнопку було успішно видалено.');
+}, { once: true }); // { once: true } гарантує, що обробник спрацює лише один раз
