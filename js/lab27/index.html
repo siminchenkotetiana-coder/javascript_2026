@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ЛР 27. Варіант 13</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="page">
+    <h1>Тротлінг для mousemove</h1>
+    <p>Рухайте мишею всередині області та порівняйте кількість подій із кількістю оптимізованих викликів.</p>
+
+    <section id="move-area" class="move-area">
+      Рухайте мишею тут
+    </section>
+
+    <div class="stats">
+      <p>Подій mousemove: <span id="raw-count">0</span></p>
+      <p>Викликів після throttle: <span id="handled-count">0</span></p>
+      <p id="position">Координати: x = 0, y = 0</p>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
