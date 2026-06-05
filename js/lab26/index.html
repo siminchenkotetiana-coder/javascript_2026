@@ -1,20 +1,35 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ЛР 26. Варіант 13</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <title>Лабораторна робота 26</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 50px;
+            display: flex;
+            justify-content: center;
+        }
+        .delete-btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #ff4d4d;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .delete-btn:hover {
+            background-color: #cc0000;
+        }
+    </style>
 </head>
 <body>
-  <main class="page">
-    <h1>Кнопка, що видаляє себе</h1>
-    <p>Натисніть кнопку один раз, щоб вона зникла зі сторінки.</p>
 
-    <button id="remove-me" type="button">Видалити мене</button>
-    <p id="info" class="info" aria-live="polite"></p>
-  </main>
+    <button id="selfDestructBtn" class="delete-btn">Натисни, щоб видалити мене</button>
+    <p id="info"></p>
 
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
