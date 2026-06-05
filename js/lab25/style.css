@@ -1,0 +1,33 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f4f6f8;
+}
+
+.page {
+  width: min(800px, 92%);
+  margin: 30px auto;
+}
+
+.content-container {
+  padding: 18px;
+  border: 2px solid #c9d4e5;
+  border-radius: 12px;
+  background: white;
+}
+
+/* Клас для підсвічування, який додається через JS */
+.highlight-child {
+  outline: 2px solid #6684c2;
+  background: #edf3ff;
+}
+
+button {
+  margin-top: 16px;
+  padding: 10px 14px;
+  cursor: pointer;
+}
+
+.output {
+  margin-top: 18px;
+}
