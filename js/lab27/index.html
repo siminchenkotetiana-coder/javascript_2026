@@ -1,27 +1,47 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ЛР 27. Варіант 13</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тротлінг подій миші</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f9;
+        }
+        .container {
+            text-align: center;
+            padding: 30px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .counter {
+            font-size: 1.2rem;
+            margin: 10px 0;
+            color: #333;
+        }
+        span {
+            font-weight: bold;
+            color: #007BFF;
+        }
+    </style>
 </head>
 <body>
-  <main class="page">
-    <h1>Тротлінг для mousemove</h1>
-    <p>Рухайте мишею всередині області та порівняйте кількість подій із кількістю оптимізованих викликів.</p>
 
-    <section id="move-area" class="move-area">
-      Рухайте мишею тут
-    </section>
+<div class="container">
+    <h2>Оптимізація події mousemove (Тротлінг)</h2>
+    <p>Порухайте мишею по екрану для перевірки роботи:</p>
+    <div class="counter">Звичайних викликів: <span id="raw-count">0</span></div>
+    <div class="counter">Оптимізованих викликів (Throttled): <span id="throttled-count">0</span></div>
+    <div class="counter">Поточні координати: <span id="coords">X: 0, Y: 0</span></div>
+</div>
 
-    <div class="stats">
-      <p>Подій mousemove: <span id="raw-count">0</span></p>
-      <p>Викликів після throttle: <span id="handled-count">0</span></p>
-      <p id="position">Координати: x = 0, y = 0</p>
-    </div>
-  </main>
-
-  <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
