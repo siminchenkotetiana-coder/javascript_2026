@@ -1,59 +1,60 @@
-"use strict";
+// Отримуємо елементи сторінки для відображення результатів
+const rawCountEl = document.getElementById('raw-count');
+const throttledCountEl = document.getElementById('throttled-count');
+const coordsEl = document.getElementById('coords');
 
-/*
-  Лабораторна робота 27
-  Варіант 13: обробник пересування миші з тротлінгом.
-*/
+// Лічильник усіх викликів події mousemove
+let rawCounter = 0;
 
-function throttle(callback, intervalMs) {
-  let lastCallTime = 0;
-  let timerId = null;
+// Лічильник викликів після застосування тротлінгу
+let throttledCounter = 0;
 
-  return function throttledCallback(...args) {
-    const now = Date.now();
-    const remainingTime = intervalMs - (now - lastCallTime);
+// Функція вищого порядку для реалізації тротлінгу
+// Дозволяє викликати функцію не частіше одного разу за заданий інтервал часу
+function throttle(func, delay) {
+    let isWaiting = false; // Прапорець блокування викликів
 
-    if (remainingTime <= 0) {
-      clearTimeout(timerId);
-      timerId = null;
-      lastCallTime = now;
-      callback.apply(this, args);
-      return;
-    }
+    return function(...args) {
 
-    if (timerId === null) {
-      timerId = setTimeout(() => {
-        lastCallTime = Date.now();
-        timerId = null;
-        callback.apply(this, args);
-      }, remainingTime);
-    }
-  };
+        // Якщо затримка ще не завершилась, ігноруємо виклик
+        if (isWaiting) return;
+
+        // Виконуємо передану функцію
+        func.apply(this, args);
+
+        // Блокуємо наступні виклики
+        isWaiting = true;
+
+        // Через delay мс дозволяємо новий виклик функції
+        setTimeout(() => {
+            isWaiting = false;
+        }, delay);
+    };
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  const moveArea = document.querySelector("#move-area");
-  const rawCountElement = document.querySelector("#raw-count");
-  const handledCountElement = document.querySelector("#handled-count");
-  const positionElement = document.querySelector("#position");
+// Функція оновлення координат миші
+function updateMouseTracking(event) {
 
-  let rawCount = 0;
-  let handledCount = 0;
+    // Збільшуємо лічильник оптимізованих викликів
+    throttledCounter++;
+    throttledCountEl.textContent = throttledCounter;
 
-  const throttledMouseMove = throttle((event) => {
-    handledCount += 1;
-    handledCountElement.textContent = handledCount;
+    // Виводимо поточні координати курсора
+    coordsEl.textContent = `X: ${event.clientX}, Y: ${event.clientY}`;
+}
 
-    const rect = moveArea.getBoundingClientRect();
-    const x = Math.round(event.clientX - rect.left);
-    const y = Math.round(event.clientY - rect.top);
+// Створюємо оптимізовану версію обробника
+// Виклик дозволяється не частіше одного разу на 100 мс
+const throttledMouseMove = throttle(updateMouseTracking, 100);
 
-    positionElement.textContent = `Координати: x = ${x}, y = ${y}`;
-  }, 150);
+// Звичайний обробник події mousemove
+// Спрацьовує при кожному русі миші
+window.addEventListener('mousemove', () => {
 
-  moveArea.addEventListener("mousemove", (event) => {
-    rawCount += 1;
-    rawCountElement.textContent = rawCount;
-    throttledMouseMove(event);
-  });
+    // Рахуємо всі виклики події
+    rawCounter++;
+    rawCountEl.textContent = rawCounter;
 });
+
+// Оптимізований обробник з використанням тротлінгу
+window.addEventListener('mousemove', throttledMouseMove);
