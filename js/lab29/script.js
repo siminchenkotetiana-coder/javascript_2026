@@ -1,41 +1,70 @@
-const taskInput = document.getElementById("taskInput");
-const taskList = document.getElementById("taskList");
+// Масив для зберігання книг або фільмів
+let favorites = [];
 
-let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+// Завантаження даних із LocalStorage
+if(localStorage.getItem("favorites")){
+    favorites = JSON.parse(localStorage.getItem("favorites"));
+    displayItems();
+}
 
-function renderTasks() {
-    taskList.innerHTML = "";
+// Додавання нового елемента
+function addItem(){
 
-    tasks.forEach((task, index) => {
+    const input = document.getElementById("itemInput");
+    const value = input.value.trim();
+
+    if(value === ""){
+        alert("Введіть назву!");
+        return;
+    }
+
+    favorites.push(value);
+
+    saveData();
+
+    input.value = "";
+
+    displayItems();
+}
+
+// Відображення списку
+function displayItems(){
+
+    const list = document.getElementById("list");
+
+    list.innerHTML = "";
+
+    favorites.forEach((item, index) => {
+
         const li = document.createElement("li");
-        li.textContent = task;
 
-        const deleteBtn = document.createElement("button");
-        deleteBtn.textContent = "Видалити";
+        li.innerHTML = `
+            ${item}
+            <button class="deleteBtn"
+            onclick="deleteItem(${index})">
+            Видалити
+            </button>
+        `;
 
-        deleteBtn.onclick = () => {
-            tasks.splice(index, 1);
-            saveTasks();
-        };
-
-        li.appendChild(deleteBtn);
-        taskList.appendChild(li);
+        list.appendChild(li);
     });
 }
 
-function saveTasks() {
-    localStorage.setItem("tasks", JSON.stringify(tasks));
-    renderTasks();
+// Видалення елемента
+function deleteItem(index){
+
+    favorites.splice(index, 1);
+
+    saveData();
+
+    displayItems();
 }
 
-function addTask() {
-    const task = taskInput.value.trim();
+// Збереження в LocalStorage
+function saveData(){
 
-    if (task !== "") {
-        tasks.push(task);
-        taskInput.value = "";
-        saveTasks();
-    }
+    localStorage.setItem(
+        "favorites",
+        JSON.stringify(favorites)
+    );
 }
-
-renderTasks();
