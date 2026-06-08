@@ -1,26 +1,118 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-<meta charset="UTF-8">
-<title>Lab 30</title>
-<style>
-body { font-family: Arial; margin: 30px; }
-input, button { padding: 8px; margin: 5px; }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лабораторна робота №30</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #4e73df, #1cc88a);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            background: white;
+            padding: 30px;
+            width: 400px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+            font-size: 24px;
+        }
+
+        p.description {
+            text-align: center;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-top: 12px;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #444;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #4e73df;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 20px;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            background: #4e73df;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #2e59d9;
+        }
+
+        #result {
+            margin-top: 20px;
+            padding: 12px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            color: #1cc88a;
+            background: #f8f9fc;
+            border-radius: 8px;
+        }
+    </style>
 </head>
 <body>
-<h1>Кількість днів у місяці</h1>
 
-<label>Введіть рік:</label>
-<input type="number" id="year">
+<div class="container">
+    <h1>Кількість днів у місяці</h1>
 
-<label>Введіть номер місяця:</label>
-<input type="number" id="month" min="1" max="12">
+    <p class="description">
+        Введіть рік та номер місяця, щоб дізнатися кількість днів.
+    </p>
 
-<button onclick="showDays()">Показати</button>
+    <label for="year">Рік:</label>
+    <input type="number" id="year" placeholder="Наприклад: 2025">
 
-<p id="result"></p>
+    <label for="month">Номер місяця:</label>
+    <input type="number" id="month" min="1" max="12" placeholder="Від 1 до 12">
+
+    <button onclick="showDays()">Показати</button>
+
+    <p id="result"></p>
+</div>
 
 <script src="script.js"></script>
+
 </body>
 </html>
