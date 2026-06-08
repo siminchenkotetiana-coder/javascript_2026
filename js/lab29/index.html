@@ -2,22 +2,121 @@
 <html lang="uk">
 <head>
     <meta charset="UTF-8">
-    <title>Улюблені книги та фільми</title>
     <link rel="stylesheet" href="style.css">
+    <title>Список улюблених книг і фільмів</title>
 </head>
 <body>
 
-    <div class="container">
-        <h1>Мої улюблені книги та фільми</h1>
+    <h2>Мої улюблені книги та фільми</h2>
 
-        <input type="text" id="itemInput"
-               placeholder="Введіть назву книги або фільму">
+    <form id="favoriteForm">
+        <label>
+            Назва книги або фільму:
+            <input type="text" id="favoriteInput">
+        </label>
 
-        <button onclick="addItem()">Додати</button>
+        <button type="submit">Додати</button>
+        <button type="button" id="clearBtn">Очистити список</button>
+    </form>
 
-        <ul id="list"></ul>
-    </div>
+    <br>
 
-    <script src="script.js"></script>
+    <ul id="favoriteList"></ul>
+
+    <script>
+
+        // Отримання елементів сторінки
+        const form = document.getElementById("favoriteForm");
+        const favoriteInput = document.getElementById("favoriteInput");
+        const favoriteList = document.getElementById("favoriteList");
+        const clearBtn = document.getElementById("clearBtn");
+
+        // Ключ для SessionStorage
+        const storageKey = "favorites";
+
+        // Масив для зберігання книг і фільмів
+        let favorites = [];
+
+        // Завантаження даних після відкриття сторінки
+        window.addEventListener("load", () => {
+
+            const savedData = sessionStorage.getItem(storageKey);
+
+            if(savedData){
+                favorites = JSON.parse(savedData);
+                displayFavorites();
+            }
+        });
+
+        // Додавання нового елемента
+        form.addEventListener("submit", (event) => {
+
+            event.preventDefault();
+
+            const value = favoriteInput.value.trim();
+
+            if(value === ""){
+                alert("Введіть назву книги або фільму!");
+                return;
+            }
+
+            favorites.push(value);
+
+            // Збереження у SessionStorage
+            sessionStorage.setItem(
+                storageKey,
+                JSON.stringify(favorites)
+            );
+
+            displayFavorites();
+
+            favoriteInput.value = "";
+        });
+
+        // Відображення списку
+        function displayFavorites(){
+
+            favoriteList.innerHTML = "";
+
+            favorites.forEach((item, index) => {
+
+                const li = document.createElement("li");
+
+                li.innerHTML = `
+                    ${item}
+                    <button onclick="deleteFavorite(${index})">
+                        Видалити
+                    </button>
+                `;
+
+                favoriteList.appendChild(li);
+            });
+        }
+
+        // Видалення елемента
+        function deleteFavorite(index){
+
+            favorites.splice(index, 1);
+
+            sessionStorage.setItem(
+                storageKey,
+                JSON.stringify(favorites)
+            );
+
+            displayFavorites();
+        }
+
+        // Очищення всього списку
+        clearBtn.addEventListener("click", () => {
+
+            sessionStorage.removeItem(storageKey);
+
+            favorites = [];
+
+            displayFavorites();
+        });
+
+    </script>
+
 </body>
 </html>
