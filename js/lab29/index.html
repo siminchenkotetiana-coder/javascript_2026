@@ -1,22 +1,23 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-<meta charset="UTF-8">
-<title>Lab 28</title>
-<style>
-body { font-family: Arial; margin: 30px; }
-input, button { padding: 8px; margin: 5px; }
-li { margin: 8px 0; }
-</style>
+    <meta charset="UTF-8">
+    <title>Улюблені книги та фільми</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<h1>Список завдань</h1>
 
-<input type="text" id="taskInput" placeholder="Введіть завдання">
-<button onclick="addTask()">Додати</button>
+    <div class="container">
+        <h1>Мої улюблені книги та фільми</h1>
 
-<ul id="taskList"></ul>
+        <input type="text" id="itemInput"
+               placeholder="Введіть назву книги або фільму">
 
-<script src="script.js"></script>
+        <button onclick="addItem()">Додати</button>
+
+        <ul id="list"></ul>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
