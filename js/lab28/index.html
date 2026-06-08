@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Список завдань</title>
+
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            margin: 30px;
+        }
+
+        input{
+            padding: 8px;
+            width: 250px;
+        }
+
+        button{
+            padding: 8px 12px;
+            margin-left: 5px;
+        }
+
+        li{
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Список завдань</h1>
+
+    <input type="text" id="taskInput" placeholder="Введіть завдання">
+
+    <button onclick="addTask()">
+        Додати
+    </button>
+
+    <ul id="taskList"></ul>
+
+    <script src="script1.js"></script>
+
+</body>
+</html>
